@@ -1,0 +1,18 @@
+{% extends "coffeeCloud/base.html" %}
+{% block content %}
+    <h3>CoffeeCloud homepage</h3>
+    <!-- products is dict key of variable passed into template -->
+    {% for item in products %}
+        <!-- to access data, .company is dict key for product attributes -->
+        <article class="media content-section">
+            <div class="media-body">
+            <div class="article-metadata">
+                <a class="mr-2" href="#">{{ item.company }}</a>
+                <small class="text-muted"> Roast Date: {{ item.roastDate }}</small>
+            </div>
+            <h2><a class="article-title" href="#">{{ item.region }}</a></h2>
+            <p class="article-content"> Processed with: {{ item.process }} <br> Roast level: {{ item.roastLevel }}</p>
+          </div>
+        </article>
+    {% endfor %}
+{% endblock content %}
