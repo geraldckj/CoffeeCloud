@@ -7,12 +7,14 @@
         <article class="media content-section">
             <div class="media-body">
             <div class="article-metadata">
-                <a class="mr-2" href="#">{{ item.company }}</a>
-                <small class="text-muted"> Roast Date: {{ item.roastDate }}</small>
+                <a class="mr-2" href="#">{{ item.region }}</a>
+                <small class="text-muted"> Roasted on: {{ item.dateRoast|date:"F d, Y" }}</small>
             </div>
-            <h2><a class="article-title" href="#">{{ item.region }}</a></h2>
-            <p class="article-content"> Processed with: {{ item.process }} <br> Roast level: {{ item.roastLevel }}</p>
-          </div>
+            <h2><a class="article-title" href="#">{{ item.name }}</a></h2>
+                <p class = "article-content">Proccess: {{ item.process }} <br> Roast level: {{ item.roast }}</p>
+            <p class="article-content"> {{ item.description }} </p>
+            <div class ="small">Brought to you by: {{item.company}} </div>
+            </div>
         </article>
     {% endfor %}
 {% endblock content %}

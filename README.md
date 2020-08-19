@@ -1,6 +1,8 @@
 # CoffeeCloud
 CoffeeCloud with Django
 <br>
+There are 3 different apps. Main Django project (django_coffeesite), coffeeCloud and coffeeCloud's user apps (users)<br>
+
 Run program with: `python manage.py runserver`
 
 To update db: <br>

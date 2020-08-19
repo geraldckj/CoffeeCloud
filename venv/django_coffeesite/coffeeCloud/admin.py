@@ -1,3 +1,5 @@
 from django.contrib import admin
+from coffeeCloud.models import Reviews,Beans
 
-# Register your models here.
+admin.site.register(Reviews)
+admin.site.register(Beans)
