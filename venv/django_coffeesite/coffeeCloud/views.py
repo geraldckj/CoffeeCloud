@@ -13,3 +13,6 @@ def home(request):
 
 def about(request):
     return render(request, "coffeeCloud/about.html", {'title': 'About us'})
+
+def pub_homepage(request):
+    return render(request, "coffeeCloud/pub_homepage.html")

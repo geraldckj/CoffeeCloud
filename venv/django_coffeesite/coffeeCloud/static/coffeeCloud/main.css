@@ -82,3 +82,28 @@ a.article-title:hover {
 .account-heading {
   font-size: 2.5rem;
 }
+
+/* mine */
+.btn-grp{
+  margin-right: 50px;
+  margin-left: 100px;
+  color: aliceblue;
+  border-color: azure;
+}
+
+
+.btn-grp{
+  align-content: center;
+  background-color: aliceblue; /* Green background */
+  color: white; /* White text */
+  cursor: pointer; /* Pointer/hand icon */
+  float: left; /* Float the buttons side by side */
+  margin: 20px
+}
+
+/* Clear floats (clearfix hack) */
+.btn-grp:after {
+  content: "";
+  clear: both;
+  display: table;
+}
