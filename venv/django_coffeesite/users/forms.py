@@ -2,6 +2,8 @@ from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 
+#django creates forms in template straight from these classes.
+#pass class as a variable into views.py, then pass var into template's crispy forms
 class userRegisterForm(UserCreationForm):
     email = forms.EmailField()
     #nested namespace for configurations
