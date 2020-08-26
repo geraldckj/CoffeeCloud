@@ -31,6 +31,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'chartjs',
+    'rest_framework',
     'users.apps.UsersConfig',
     'crispy_forms',
     'coffeeCloud.apps.coffeeCloudConfig',
