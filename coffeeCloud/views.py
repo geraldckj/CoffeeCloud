@@ -72,3 +72,11 @@ def contactForm(request):
         form = ContactForm()
     return render(request, "coffeeCloud/contactForm.html", {'form': form})
 
+def myBeans(request):
+    #get curr user
+    user = request.user
+    beans = Beans.objects.filter(user=user)
+    allUserBeans = {
+        'products': beans
+    }
+    return render(request, "coffeeCloud/myBeans.html", allUserBeans)

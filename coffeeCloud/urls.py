@@ -10,4 +10,5 @@ urlpatterns = [
     path('log/', views.dailyLog, name="coffeeCloud-dailyLog"),
     path('addbean/', views.addBean, name="coffeeCloud-addBean"),
     path('contact/', views.contactForm, name="coffeeCloud-contactForm"),
+    path('mybeans/', views.myBeans, name="coffeeCloud-myBeans"),
 ]
