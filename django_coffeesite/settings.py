@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+<<<<<<< HEAD:venv/django_coffeesite/django_coffeesite/settings.py
     'django.contrib.sites',
     # 'django.contrib.sites.models.Site
 
@@ -57,6 +58,9 @@ INSTALLED_APPS = [
     # 'allauth.socialaccounts.providers.facebook',
     'allauth.socialaccount.providers.google',
 
+=======
+    'csvimport.app.CSVImportConf',
+>>>>>>> b070c92f9e694fa56cde4112a5c48f24958f7930:django_coffeesite/settings.py
 ]
 
 MIDDLEWARE = [
@@ -144,4 +148,8 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 LOGIN_REDIRECT_URL = 'coffeeCloud-home'
 
+<<<<<<< HEAD:venv/django_coffeesite/django_coffeesite/settings.py
 SITE_ID = 1
+=======
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+>>>>>>> b070c92f9e694fa56cde4112a5c48f24958f7930:django_coffeesite/settings.py

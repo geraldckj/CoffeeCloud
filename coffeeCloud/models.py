@@ -9,11 +9,20 @@ class Beans(models.Model):
     region = models.CharField(max_length=100)
     roast = models.CharField(max_length=100)
     process = models.CharField(max_length=200, default=None, blank=True, null=True)
+    dateRoast = models.DateTimeField(default=None, blank=True, null=True)
+    notes = models.TextField(default=None, blank=True, null=True)
     description = models.TextField()
-    dateRoast = models.DateTimeField(default=timezone.now)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
+    def save(self, *args, **kwargs):
+        currUser = get_current_user()
+        if currUser and not currUser.pk:
+            currUser = None
+        self.user = currUser
+        super(Beans, self).save(*args, **kwargs)
     def __str__(self):
         return self.name
+
 
 #reviews that users can leave behind for beans, merch & accessories
 #if diff classes of products are introduced, might need to add new review tables for each
@@ -32,11 +41,11 @@ class Reviews(models.Model):
 
 class DailyLog(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    title = models.CharField(max_length=100, default="Daily Brew")
-    bean = models.CharField(max_length=100, default=None, blank=True, null=True)
+    title = models.CharField(max_length=100, default="")
+    bean = models.CharField(max_length=100, default="")
     brewMethod = models.CharField(max_length=100)
-    remarks = models.TextField(default="No remarks")
-    dateLogged= models.DateTimeField(default=timezone.now)
+    remarks = models.TextField(default="", blank=True, null=True)
+    dateLogged = models.DateTimeField(default=timezone.now)
     prevActivity = models.CharField(default=None, blank=True, null=True, max_length=100)
     taste = models.IntegerField(default=None, blank=True, null=True)
     mood = models.IntegerField(default=None, blank=True, null=True)

@@ -1,0 +1,66 @@
+{% extends "coffeeCloud/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <div class="content">
+        <form method="POST">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Register your beans here!</legend>
+                {{form|crispy}}
+            </fieldset>
+            <div class="form-group">
+                <button class="btn, btn-outline-info" type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+{% endblock content %}
+
+<!-- https://simpleisbetterthancomplex.com/tutorial/2018/11/28/advanced-form-rendering-with-django-crispy-forms.html#custom-fields-placement-with-crispy-forms -->
+
+
+
+<!-- extends "coffeeCloud/base.html" %}-->
+<!-- load crispy_forms_tags %}-->
+<!--bl0ck content %}-->
+<!--    <div class="content">-->
+<!--        <form method="POST">-->
+<!--            {% csrf_token %}-->
+<!--            <fieldset class="form-group">-->
+<!--                <legend class="border-bottom mb-4">Log your cup</legend>-->
+<!--                <div class="form-row">-->
+<!--                    {{ form.title|as_crispy_field }}-->
+<!--                </div>-->
+<!--                <div class="form-row">-->
+<!--                    <legend> Which Bean did you use? </legend>-->
+<!--                    {% for item in beanChoice %}-->
+<!--                    <option value={{ item.id }}> {{item.name}}</option>-->
+<!--                    {% endfor %}-->
+<!--                </div>-->
+<!--                <div class="form-row">-->
+<!--                    {{ form.brewMethod|as_crispy_field }}-->
+<!--                </div>-->
+<!--                <div class="form-row">-->
+<!--                    {{ form.remarks|as_crispy_field }}-->
+<!--                </div>-->
+<!--                <div class="form-row">-->
+<!--                    {{ form.dateLogged|as_crispy_field }}-->
+<!--                </div>-->
+<!--                <div class="form-row">-->
+<!--                    {{ form.prevActivity|as_crispy_field }}-->
+<!--                </div>-->
+<!--                <div class="form-row">-->
+<!--                    {{ form.taste|as_crispy_field }}-->
+<!--                </div>-->
+<!--                <div class="form-row">-->
+<!--                    {{ form.mood|as_crispy_field }}-->
+<!--                </div>-->
+<!--                <div class="form-row">-->
+<!--                    {{ form.cNotes|as_crispy_field }}-->
+<!--                </div>-->
+<!--            </fieldset>-->
+<!--            <div class="form-group">-->
+<!--                <button class="btn, btn-outline-info" type="submit">Submit</button>-->
+<!--            </div>-->
+<!--        </form>-->
+<!--    </div>-->
+<!--{% endblock content-->
