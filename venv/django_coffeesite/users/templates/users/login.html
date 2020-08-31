@@ -1,21 +1,33 @@
 {% extends "coffeeCloud/base.html" %}
 {% load crispy_forms_tags %}
+{% load socialaccount %}
+{% providers_media_js %}
 {% block content %}
-    <div class="content">
-        <form method="POST">
-            {% csrf_token %}
-            <fieldset class="form-group">
-                <legend class="border-bottom mb-4">Login Now</legend>
-                {{ form | crispy }}
-            </fieldset>
-            <div class="form-group">
-                <button class="btn, btn-outline-info" type="submit">Log In</button>
-            </div>
-        </form>
-        <div class="border-top pt-3">
-            <small class="text-muted">
-                Don't have an account yet? <a class="ml-2" href="{% url 'register' %}">Register here</a>
-            </small>
+<div class="content">
+    <form method="POST">
+        {% csrf_token %}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">Login Now</legend>
+            {{ form | crispy }}
+        </fieldset>
+        <div class="form-group">
+            <button class="btn, btn-outline-info" type="submit">Log In</button>
         </div>
+    </form>
+    <div class="border-top pt-3">
+        <small class="text-muted">
+            Don't have an account yet? <a class="ml-2" href="{% url 'register' %}">Register here</a>
+        </small>
     </div>
+    <br />
+    <div id="social-login">
+        <button>
+            <a href="{% provider_login_url "google" %}">Google Login</a>
+        </button>
+        <!-- <button>
+            <a href="#">Facebook Login</a>
+        </button> -->
+    </div>
+
+</div>
 {% endblock content %}

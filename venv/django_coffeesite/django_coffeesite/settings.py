@@ -42,6 +42,21 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+    # 'django.contrib.sites.models.Site
+
+    # local
+
+
+    # allauth for social login
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+
+    # providers
+    # 'allauth.socialaccounts.providers.facebook',
+    'allauth.socialaccount.providers.google',
+
 ]
 
 MIDDLEWARE = [
@@ -128,3 +143,5 @@ STATIC_URL = '/static/'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 LOGIN_REDIRECT_URL = 'coffeeCloud-home'
+
+SITE_ID = 1
