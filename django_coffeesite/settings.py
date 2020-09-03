@@ -146,7 +146,11 @@ STATICFILES_DIRS = [
     "venv/django_coffeesite/coffeeCloud/static/coffeeCloud/autofill.js",
     "venv/django_coffeesite/coffeeCloud/static/coffeeCloud/tags.js",
     "venv/django_coffeesite/coffeeCloud/static/coffeeCloud/formTags.js",
-"venv/django_coffeesite/coffeeCloud/static/coffeeCloud/tags.css",
+    "venv/django_coffeesite/coffeeCloud/static/coffeeCloud/tags.css",
+
+    #bootstrap tokenfield static files
+    "venv/django_coffeesite/coffeeCloud/static/coffeeCloud/tkenField_BS/css/bootstrap-tokenfield.css",
+    "venv/django_coffeesite/coffeeCloud/static/coffeeCloud/tkenField_BS/bootstrap-tokenfield.js",
 ]
 
 

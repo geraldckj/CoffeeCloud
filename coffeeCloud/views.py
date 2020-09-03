@@ -97,3 +97,8 @@ def logChoice(request):
 
 def chipTest(request):
     return render(request, "coffeeCLoud/chipTest.html")
+
+
+
+def chipTest2(request):
+    return render(request, "coffeeCLoud/chipTest2.html")

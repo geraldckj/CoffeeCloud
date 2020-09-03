@@ -14,9 +14,9 @@ title: Tokenfield for Bootstrap
     <title>Tokenfield for Bootstrap</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
     <!-- jQuery UI CSS -->
-    <link href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" type="text/css" rel="stylesheet">
+    <link href="//code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" type="text/css" rel="stylesheet">
     <!-- Bootstrap styling for Typeahead -->
     <link href="dist/css/tokenfield-typeahead.css" type="text/css" rel="stylesheet">
     <!-- Tokenfield CSS -->
@@ -45,7 +45,7 @@ title: Tokenfield for Bootstrap
           <li>Responsive</li>
         </ul>
         <div id="main-links">
-          <a id="download-master" href="https://github.com/sliptree/bootstrap-tokenfield/zipball/master" class="btn btn-primary">Download Development</a>     
+          <a id="download-master" href="https://github.com/sliptree/bootstrap-tokenfield/zipball/master" class="btn btn-primary">Download Development</a>
         </div>
       </div>
     </div>
@@ -62,9 +62,9 @@ title: Tokenfield for Bootstrap
               <li><a href="#methods">Methods</a></li>
               <li><a href="#events">Events</a></li>
               <li><a href="#keyboard">Keyboard support</a></li>
-              <li><a href="#copy-paste">Copy &amp; paste support</a></li>          
-              <li><a href="#validation-states">Validation states</a></li>              
-              <li><a href="#various-examples">Various examples</a></li>              
+              <li><a href="#copy-paste">Copy &amp; paste support</a></li>
+              <li><a href="#validation-states">Validation states</a></li>
+              <li><a href="#various-examples">Various examples</a></li>
             </ul>
           </div>
         </div>
@@ -74,7 +74,7 @@ title: Tokenfield for Bootstrap
             ================================================== -->
             <div class="bs-docs-section">
               <div class="page-header">
-                <h1 id="tokenfield">Tokenfield <small>v0.12.0</small></h1>
+                <h1 id="tokenfield">Tokenfield <small>%VERSION%</small></h1>
               </div>
 
               <h2 id="examples">Examples</h2>
@@ -116,9 +116,9 @@ $('#tokenfield').tokenfield({
 var engine = new Bloodhound({
   local: [{value: 'red'}, {value: 'blue'}, {value: 'green'} , {value: 'yellow'}, {value: 'violet'}, {value: 'brown'}, {value: 'purple'}, {value: 'black'}, {value: 'white'}],
   datumTokenizer: function(d) {
-    return Bloodhound.tokenizers.whitespace(d.value); 
+    return Bloodhound.tokenizers.whitespace(d.value);
   },
-  queryTokenizer: Bloodhound.tokenizers.whitespace    
+  queryTokenizer: Bloodhound.tokenizers.whitespace
 });
 
 engine.initialize();
@@ -209,6 +209,12 @@ $('.tokenfield').tokenfield()
                       <td>boolean</td>
                       <td><code>true</code></td>
                       <td>Whether to insert spaces after each token when getting a comma-separated list of tokens. This affects both value returned by <code>getTokensList()<code> and the value of the original input field.</td>
+                    </tr>
+                    <tr>
+                      <td>inputType</td>
+                      <td>string</td>
+                      <td><code>'text'</code></td>
+                      <td>HTML type attribute for the token input. This is useful for specifying an HTML5 input type like <code>'email'</code>, <code>'url'</code> or <code>'tel'</code> which allows mobile browsers to show a specialized virtual keyboard optimized for different types of input. This only sets the type of the visible token input but does not touch the original input field. So you may set the original input to have <code>type="text"</code> but set this inputType option to <code>'email'</code> if you only want to take advantage of the email style keyboard on mobile, but don't want to enable HTML5 native email validation on the original hidden input.</td>
                     </tr>
                   </tbody>
                 </table>
@@ -343,7 +349,7 @@ $('#myField').tokenfield('destroy');
               <p>When the user starts to edit the token, we merge token value and label together again.</p>
 
               <div class="bs-example">
-                <input type="text" class="form-control" id="tokenfield-2" value="me|me@example.com,you@example.com,not really an email" />
+                <input type="text" class="form-control" id="tokenfield-2" data-tokens="me|me@example.com,you@example.com,not really an email" />
               </div>
 
 {% highlight js %}
@@ -441,7 +447,7 @@ $('#tokenfield')
                   <span class="input-group-addon"><span class="glyphicon glyphicon-star"></span></span>
                 </div>
               </form>
-              
+
               <p>Using tokenfield with input group checkboxes and radio buttons</p>
 
               <form class="bs-example bs-example-form" role="form">
@@ -464,7 +470,7 @@ $('#tokenfield')
                   </div><!-- /.col-lg-6 -->
                 </div>
               </form>
-              
+
               <p>Using tokenfield with buttons in input groups</p>
 
               <form class="bs-example bs-example-form" role="form">
@@ -544,7 +550,7 @@ $('#tokenfield')
                 </div>
                 <button type="submit" class="btn btn-default">Search</button>
               </form>
-              
+
               <p>Tokenfield in horizontal form</p>
 
               <form class="bs-example form-horizontal">
@@ -572,7 +578,7 @@ $('#tokenfield')
                   </div>
                 </div>
               </form>
-              
+
               <p>Tokenfield with fluid and fixed widths (50%, 300px, etc...)</p>
 
               <form class="bs-example bs-example-form" role="form">
@@ -589,7 +595,7 @@ $('#tokenfield')
                   <input type="text" id="example-fixed-tokenfield-2" class="form-control token-example-field" value="red,green,blue" style="width:400px;" />
                 </div>
               </form>
-              
+
               <p>Tokenfield with RTL direction</p>
 
               <form class="bs-example bs-example-form" role="form">
@@ -600,7 +606,7 @@ $('#tokenfield')
 
       </div><!-- // row -->
 
-    </div><!-- //container --> 
+    </div><!-- //container -->
 
     <footer class="bs-footer" role="contentinfo">
       <div class="container">
@@ -614,7 +620,7 @@ $('#tokenfield')
             </li>
             <li class="follow-btn">
               <a href="https://twitter.com/sliptree" class="twitter-follow-button" data-show-count="false">Follow @sliptree</a>
-              <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script> 
+              <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
             </li>
             <li class="tweet-btn">
               <a href="https://twitter.com/share" class="twitter-share-button" data-via="sliptree" data-hashtags="bootstrap-tokenfield">Tweet</a>
@@ -633,13 +639,13 @@ $('#tokenfield')
       </div>
     </footer>
 
-    <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
-    <script type="text/javascript" src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-    <script type="text/javascript" src="dist/bootstrap-tokenfield.js" charset="UTF-8"></script>   
-    <script type="text/javascript" src="docs-assets/js/scrollspy.js" charset="UTF-8"></script>   
-    <script type="text/javascript" src="docs-assets/js/affix.js" charset="UTF-8"></script>   
-    <script type="text/javascript" src="docs-assets/js/typeahead.bundle.min.js" charset="UTF-8"></script>   
-    <script type="text/javascript" src="docs-assets/js/docs.min.js" charset="UTF-8"></script>   
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+    <script type="text/javascript" src="dist/bootstrap-tokenfield.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="docs-assets/js/scrollspy.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="docs-assets/js/affix.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="docs-assets/js/typeahead.bundle.min.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="docs-assets/js/docs.min.js" charset="UTF-8"></script>
 
     <script type="text/javascript">
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
