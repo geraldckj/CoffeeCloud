@@ -23,6 +23,8 @@ def pub_homepage(request):
     return render(request, "coffeeCloud/pub_homepage.html")
 
 def dailyLog(request):
+    #TODO: allow notes field to accept and show HTML chips in real time
+
     # conditional to handle post and get requests
     if request.method == 'POST':
         # usercreationform auto maps to user db. don't need to do new route
@@ -80,3 +82,18 @@ def myBeans(request):
         'products': beans
     }
     return render(request, "coffeeCloud/myBeans.html", allUserBeans)
+
+def logChoice(request):
+    user = request.user
+    #shows user most recent logged bean
+    userBean = Beans.objects.filter(user=user)
+    pastBean = {
+        'pastBean': userBean
+    }
+    print(pastBean)
+    #TODO: find way to display pastBean options in a dropdown list in logChoice.html
+    #give users a choice to choose btw logging new/old bean
+    return render(request, 'coffeeCloud/logChoice.html', pastBean)
+
+def chipTest(request):
+    return render(request, "coffeeCLoud/chipTest.html")

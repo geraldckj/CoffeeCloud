@@ -1,5 +1,5 @@
-{% load static %}
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -10,12 +10,36 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
     <!-- static css file -->
     <link rel="stylesheet" type="text/css" href="{% static 'coffeeCloud/main.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'coffeeCloud/tags.css' %}">
+
     <!-- w3 stylesheet -->
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
+    <script data-require="jquery@*" data-semver="2.2.0" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script type="text/javascript" src='{% static "coffeeCloud/autofill.js" %}'></script>
+    <script src="{% static 'coffeeCloud/tags.js' %}"></script>
+    <script src="{% static 'coffeeCloud/formTags.js' %}"></script>
 
+
+
+
+    <script>
+        $(function() {
+            $("#tokenfield").autofill({
+                data: ["javascript", "mysql", "python", "jquery"]
+            });
+        })
+    </script>
     {% if title %}
         <title>Coffee Cloud: {{ title }}</title>
     {% else %}
@@ -37,9 +61,9 @@
                 <div class="collapse navbar-collapse" id="navbarToggle">
                     <div class="navbar-nav mr-auto">
                         <a class="nav-item nav-link" href="{% url 'coffeeCloud-home' %}">Home</a>
-                        <a class="nav-item nav-link" href="{% url 'coffeeCloud-dailyLog' %}">Log</a>
+                        <a class="nav-item nav-link" href="{% url 'coffeeCloud-logChoice' %}">Log</a>
                         <li class="nav-item dropdown">
-                            <a class="dropdown-toggle nav-item nav-link" href="{% url 'coffeeCloud-addBean' %}"
+                            <a class="dropdown-toggle nav-item nav-link" href="{% url 'coffeeCloud-logChoice' %}"
                                id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
                                aria-expanded="false">Beans</a>
                                 <div class="dropdown-menu" id="dropdownField" aria-labelledby="navbarDropdown">
@@ -106,12 +130,7 @@
                 </div>
             </div>
             -->
-            <!-- Optional JavaScript -->
-            <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-            <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
+            </div>
         </main>
 </body>
 </html>
