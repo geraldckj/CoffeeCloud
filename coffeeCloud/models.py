@@ -11,7 +11,7 @@ class Beans(models.Model):
     process = models.CharField(max_length=200, default=None, blank=True, null=True)
     dateRoast = models.DateTimeField(default=None, blank=True, null=True)
     notes = models.TextField(default=None, blank=True, null=True)
-    description = models.TextField()
+    description = models.TextField(default=None, blank=True, null=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def save(self, *args, **kwargs):

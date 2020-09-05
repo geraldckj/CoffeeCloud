@@ -3,7 +3,7 @@ from django.contrib import messages
 from django.http import HttpResponse
 from django.core.mail import send_mail
 from.models import Beans
-from.forms import DailyLogForm, NewBeansForm, ContactForm
+from.forms import DailyLogForm, NewBeansForm, ContactForm, BeanToLog
 
 beanChoice = []
 
@@ -24,24 +24,28 @@ def pub_homepage(request):
 
 def dailyLog(request):
     #TODO: allow notes field to accept and show HTML chips in real time
-
     # conditional to handle post and get requests
     if request.method == 'POST':
         # usercreationform auto maps to user db. don't need to do new route
         form = DailyLogForm(request.POST)
         if form.is_valid():
-            currUser = request.user
-            form.user = currUser.id
+            user = request.user
+            form.user = user.id
             form.save()
             # flash message if form is valid, daily log success
             messages.success(request, f'Your brew has been logged! Enjoy your coffee :)')
             # url's can be returned with the name="" given in urls.py
             return redirect('coffeeCloud-dailyLog')
     else:
-        form = DailyLogForm()
+        beanToLog = request.session['beanToLog']
+        print(beanToLog)
+        beanToLog = Beans.objects.filter(name=beanToLog)
+        user = request.user
+        form = DailyLogForm(user=user, beanToLog=beanToLog)
     return render(request, "coffeeCloud/dailyLog.html", {'form': form})
 
 def addBean(request):
+    #TODO: Try using session middleware to store the user's beans.
     # conditional to handle post and get requests
     if request.method == 'POST':
         # usercreationform auto maps to user db. don't need to do new route
@@ -59,6 +63,15 @@ def addBean(request):
         form = NewBeansForm()
     return render(request, "coffeeCloud/addBean.html", {'form': form})
 
+def myBeans(request):
+    #get curr user
+    user = request.user
+    beans = Beans.objects.filter(user=user)
+    allUserBeans = {
+        'products': beans
+    }
+    return render(request, "coffeeCloud/myBeans.html", allUserBeans)
+
 def contactForm(request):
     if request.method == 'POST':
         form = ContactForm(request.POST)
@@ -74,31 +87,34 @@ def contactForm(request):
         form = ContactForm()
     return render(request, "coffeeCloud/contactForm.html", {'form': form})
 
-def myBeans(request):
-    #get curr user
-    user = request.user
-    beans = Beans.objects.filter(user=user)
-    allUserBeans = {
-        'products': beans
-    }
-    return render(request, "coffeeCloud/myBeans.html", allUserBeans)
 
 def logChoice(request):
-    user = request.user
-    #shows user most recent logged bean
-    userBean = Beans.objects.filter(user=user)
-    pastBean = {
-        'pastBean': userBean
-    }
-    print(pastBean)
-    #TODO: find way to display pastBean options in a dropdown list in logChoice.html
-    #give users a choice to choose btw logging new/old bean
-    return render(request, 'coffeeCloud/logChoice.html', pastBean)
+    # TODO: Allow choice in dropdown to autopopulate daily log field
+    if request.method == 'POST':
+        form = BeanToLog(request.user, request.POST)
+        if form.is_valid():
+            chosenBean = form.cleaned_data['BeanToLog']
+            # get value of chosen bean from html
+            print(f'chosenBean: {chosenBean}')
+            chosenBean = str(chosenBean)
+            request.session['beanToLog'] = chosenBean
+            # tmp = request.session['beanToLog']
+            # print(tmp)
+
+            return redirect('coffeeCloud-dailyLog')
+    else:
+        user = request.user
+        #shows user most recent logged bean
+        userBean = Beans.objects.filter(user=user)
+        pastBean = {
+            'pastBean': userBean
+        }
+        print(pastBean)
+        form = BeanToLog(user=user)
+        return render(request, 'coffeeCloud/logChoice.html', {"form": form, 'pastBean': userBean})
 
 def chipTest(request):
-    return render(request, "coffeeCLoud/chipTest.html")
-
-
+    return render(request, "coffeeCloud/chipTest.html")
 
 def chipTest2(request):
     return render(request, "coffeeCLoud/chipTest2.html")

@@ -33,15 +33,29 @@ roastLevel = [
 ]
 
 class DailyLogForm(ModelForm):
+    bean = forms.ModelChoiceField(queryset=Beans.objects.none())
+
+    # def __init__(self, user, *args, **kwargs):
+    #     super().__init__(*args, **kwargs)
+    #     self.helper = FormHelper()
+    #     self.fields['BeanToLog'].queryset = Beans.objects.filter(user=user)
+
     #source for innit method
     #https://stackoverflow.com/questions/2237064/passing-arguments-to-a-dynamic-form-in-django
+    def __init__(self, user, beanToLog, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.helper = FormHelper()
+        self.fields['bean'].queryset = Beans.objects.filter(user=user)
+        self.fields['bean'].initial = beanToLog.first()
 
-    def __init__(self, *args, **kwargs):
-        choices = Beans.objects.all()
-        placeholder = Beans.objects.first()
-        super(DailyLogForm, self).__init__(*args, **kwargs)
-        self.fields['bean'] = forms.ModelChoiceField(choices)
-        self.fields['bean'].initial = placeholder
+
+    # def __init__(self, *args, **kwargs):
+    #     choices = Beans.objects.all()
+    #     placeholder = Beans.objects.first()
+    #     super(DailyLogForm, self).__init__(*args, **kwargs)
+    #     self.fields['bean'] = forms.ModelChoiceField(choices)
+    #     self.fields['bean'].initial = placeholder
+
     class Meta:
         #telling form what model it interacts with. When form is saved, it is saved into User db
         model = DailyLog
@@ -60,6 +74,7 @@ class DailyLogForm(ModelForm):
             'cNotes': 'What notes do you get in your cup? Separate each note with a comma',
             'title': 'Log title',
             'prevActivity': 'What were you doing before your cup?',
+            'BeanToLog': 'Beans',
         }
 
 class NewBeansForm(ModelForm):
@@ -89,3 +104,12 @@ class ContactForm(forms.Form):
     name = forms.CharField(max_length=100)
     email = forms.EmailField()
     message = forms.CharField(widget=forms.Textarea)
+
+
+class BeanToLog(forms.Form):
+    BeanToLog = forms.ModelChoiceField(queryset=Beans.objects.none())
+
+    def __init__(self, user, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.helper = FormHelper()
+        self.fields['BeanToLog'].queryset = Beans.objects.filter(user=user)
