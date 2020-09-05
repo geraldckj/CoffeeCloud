@@ -25,21 +25,28 @@ def pub_homepage(request):
 def dailyLog(request):
     #TODO: allow notes field to accept and show HTML chips in real time
     # conditional to handle post and get requests
-    if request.method == 'POST':
-        # usercreationform auto maps to user db. don't need to do new route
-        form = DailyLogForm(request.POST)
+    if request.POST:
+        #super important to note: When editing form init to accept more vars,
+        # need to input said vars whenever calling function
+        form = DailyLogForm(request.user.id, request.session['beanToLog'], request.POST)
+        print('form passes post req')
         if form.is_valid():
-            user = request.user
-            form.user = user.id
+            # TODO: deal with form not saving
+            print("passed form is valid")
+            form.user = request.user
+            print("form is gg to save")
             form.save()
-            # flash message if form is valid, daily log success
             messages.success(request, f'Your brew has been logged! Enjoy your coffee :)')
             # url's can be returned with the name="" given in urls.py
-            return redirect('coffeeCloud-dailyLog')
+            return redirect('coffeeCloud-home')
+        else:
+            print("form not valid")
     else:
         beanToLog = request.session['beanToLog']
         print(beanToLog)
-        beanToLog = Beans.objects.filter(name=beanToLog)
+        str(beanToLog)
+        beanToLog = Beans.objects.filter(name=beanToLog).first()
+        print(f"beanToLog in view: {beanToLog}")
         user = request.user
         form = DailyLogForm(user=user, beanToLog=beanToLog)
     return render(request, "coffeeCloud/dailyLog.html", {'form': form})

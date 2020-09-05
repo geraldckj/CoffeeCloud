@@ -43,10 +43,12 @@ class DailyLogForm(ModelForm):
     #source for innit method
     #https://stackoverflow.com/questions/2237064/passing-arguments-to-a-dynamic-form-in-django
     def __init__(self, user, beanToLog, *args, **kwargs):
+        # placeholder = Beans.objects.filter(name=beanToLog)
+        # print(placeholder)
         super().__init__(*args, **kwargs)
         self.helper = FormHelper()
         self.fields['bean'].queryset = Beans.objects.filter(user=user)
-        self.fields['bean'].initial = beanToLog.first()
+        self.fields['bean'].initial = beanToLog
 
 
     # def __init__(self, *args, **kwargs):
