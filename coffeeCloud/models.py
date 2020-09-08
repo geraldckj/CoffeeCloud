@@ -11,7 +11,7 @@ class Beans(models.Model):
     process = models.CharField(max_length=200, default=None, blank=True, null=True)
     dateRoast = models.DateTimeField(default=None, blank=True, null=True)
     notes = models.TextField(default=None, blank=True, null=True)
-    description = models.TextField()
+    description = models.TextField(default=None, blank=True, null=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def save(self, *args, **kwargs):
@@ -41,15 +41,15 @@ class Reviews(models.Model):
 
 class DailyLog(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    title = models.CharField(max_length=100, default="")
-    bean = models.CharField(max_length=100, default="")
+    title = models.CharField(max_length=100, default="User did not input title")
+    bean = models.CharField(max_length=100, default="User did not input beam")
     brewMethod = models.CharField(max_length=100)
     remarks = models.TextField(default="", blank=True, null=True)
     dateLogged = models.DateTimeField(default=timezone.now)
     prevActivity = models.CharField(default=None, blank=True, null=True, max_length=100)
     taste = models.IntegerField(default=None, blank=True, null=True)
     mood = models.IntegerField(default=None, blank=True, null=True)
-    cNotes = models.TextField(default=None, blank=True, null=True)
+    cNotes = models.CharField(max_length=100, default=None, blank=True, null=True)
 
     def save(self, *args, **kwargs):
         currUser = get_current_user()

@@ -121,9 +121,30 @@ a.article-title:hover {
   padding-right:8px;
 }
 
-#backgroundImage{
-  /* top, transparent black, faked with gradient */
-        linear-gradient(
-          rgba(0, 0, 0, 7),
-          rgba(0, 0, 0, 7)
+.card {
+  /* Add shadows to create the "card" effect */
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
 }
+
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+/* Add some padding inside the card container */
+.container {
+  padding: 2px 16px;
+}
+
+#about-us{
+  background-image: url("https://www.google.com/url?sa=i&url=https%3A%2F%2Finspirationfeed.com%2Fwallpaper-websites%2F&psig=AOvVaw1AxddqZek6HiyFGCi517vj&ust=1599651722525000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCMj6yJa92esCFQAAAAAdAAAAABAQ")
+  width:100%;
+  height: 500px;
+}
+
+
+
+
+
+
