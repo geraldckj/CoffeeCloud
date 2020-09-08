@@ -137,9 +137,14 @@ a.article-title:hover {
   padding: 2px 16px;
 }
 
-#backgroundImage{
-  /* top, transparent black, faked with gradient */
-        linear-gradient(
-          rgba(0, 0, 0, 7),
-          rgba(0, 0, 0, 7)
+#about-us{
+  background-image: url("https://www.google.com/url?sa=i&url=https%3A%2F%2Finspirationfeed.com%2Fwallpaper-websites%2F&psig=AOvVaw1AxddqZek6HiyFGCi517vj&ust=1599651722525000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCMj6yJa92esCFQAAAAAdAAAAABAQ")
+  width:100%;
+  height: 500px;
 }
+
+
+
+
+
+

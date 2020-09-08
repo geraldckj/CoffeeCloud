@@ -49,7 +49,7 @@ class DailyLogForm(ModelForm):
         self.helper = FormHelper()
         self.fields['bean'].queryset = Beans.objects.filter(user=user)
         self.fields['bean'].initial = beanToLog
-
+        self.fields['title'].initial = ""
 
     # def __init__(self, *args, **kwargs):
     #     choices = Beans.objects.all()

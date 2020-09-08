@@ -1,16 +1,30 @@
 {% extends "coffeeCloud/base.html" %}
 {% block content %}
-    <h3>CoffeeCloud homepage</h3>
-    <!-- Header -->
-    <header class="w3-display-container w3-content w3-wide" style="max-width:1500px;" id="home">
-      <img class="w3-image" id="backgroundImage" src="https://render.fineartamerica.com/images/rendered/default/poster/10/8/break/images/artworkimages/medium/2/coffee-bean-wallpaper-derek-northrop.jpg"
+    <!-- Header section -->
+    <img class="img-fluid" src="https://render.fineartamerica.com/images/rendered/default/poster/10/8/break/images/artworkimages/medium/2/coffee-bean-wallpaper-derek-northrop.jpg"
            alt="Coffee beans" width="1500" height="800">
-        <div class="w3-display-middle w3-margin-top w3-center">
-            <h1 class="w3-xxlarge w3-text-white"><span class="w3-padding w3-black w3-opacity-min">
-            <b>COFFEE</b></span> <span class="w3-hide-small w3-text-light-grey">Cloud</span></h1>
-            <br><span class = 'text-muted w3-text-light-grey'>Redefining Coffee</span>
-        </div>
-    </header>
+    <div class="w3-display-middle w3-margin-top w3-center">
+        <h1 class="w3-xxlarge w3-text-white"><span class="w3-padding w3-black w3-opacity-min">
+        <b>COFFEE</b></span> <span class="w3-hide-small w3-text-light-grey">Cloud</span></h1>
+        <br><span class = 'text-muted w3-text-light-grey'>Redefining Coffee</span><br>
+        <div style="align-content: center; margin-top: 15px"><btn class="btn btn-info" style="margin-right:20px">Learn More</btn>
+            <btn class="btn btn-info" style="margin-left:20px">Log a bean</btn></div>
+    </div>
+    <!--About us -->
+    <div class="container" id="about-us">
+        <h1 class="w3-xxlarge w3-text-white"><span class="w3-padding w3-black w3-opacity-min">
+            <b>About us</b></span></h1>
+        <br><span class = 'text-muted w3-text-light-grey'>Redefining Coffee</span><br>
+        <div style="align-content: center; margin-top: 15px"><btn class="btn btn-info" style="margin-right:20px">Learn More</btn>
+            <btn class="btn btn-info" style="margin-left:20px">Log a bean</btn></div>
+
+    </div>
+
+    <div>
+    <h2 class="text">About us</h2>
+        <p>Coffee Cloud is a website for all your coffee needs. Log your brews and compare your favourite coffees.</p>
+        <p>No matter if you're a beginner or expert, there's something for you.</p>
+    </div>
 <a href="{% url 'coffeeCloud-chipTest' %}">chipTest</a>
 <a href="{% url 'coffeeCloud-chipTest2' %}">chipTest2</a>
 {% endblock content %}
