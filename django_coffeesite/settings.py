@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
@@ -138,19 +139,25 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
-
+STATIC_ROOT = r"C:\Users\geral\Desktop\NU\Coffee Site\venv\django_coffeesite\coffeeCloud\static\coffeeCloud"
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [
-    "venv/django_coffeesite/coffeeCloud/static/coffeeCloud/main.css",
-    "venv/django_coffeesite/coffeeCloud/static/coffeeCloud/autofill.js",
-    "venv/django_coffeesite/coffeeCloud/static/coffeeCloud/tags.js",
-    "venv/django_coffeesite/coffeeCloud/static/coffeeCloud/formTags.js",
-    "venv/django_coffeesite/coffeeCloud/static/coffeeCloud/tags.css",
 
-    # bootstrap tokenfield static files
-    "venv/django_coffeesite/coffeeCloud/static/coffeeCloud/tkenField_BS/css/bootstrap-tokenfield.css",
-    "venv/django_coffeesite/coffeeCloud/static/coffeeCloud/tkenField_BS/bootstrap-tokenfield.js",
-]
+# STATICFILES_DIRS = [
+#     r"C:\Users\geral\Desktop\NU\Coffee Site\venv\django_coffeesite\coffeeCloud\static\coffeeCloud",
+#     # "/coffeeCloud/static",
+#     # "/coffeeCloud/static/coffeeCloud/main.css",
+#     # "/coffeeCloud/static/coffeeCloud/autofill.js",
+#     # "/coffeeCloud/static/coffeeCloud/tags.js",
+#     # "/coffeeCloud/static/coffeeCloud/formTags.js",
+#     # "/coffeeCloud/static/coffeeCloud/tags.css",
+#     #
+#     # # # bootstrap tokenfield static files
+#     # # "venv/django_coffeesite/coffeeCloud/static/coffeeCloud/tkenField_BS/css/bootstrap-tokenfield.css",
+#     # # "venv/django_coffeesite/coffeeCloud/static/coffeeCloud/tkenField_BS/bootstrap-tokenfield.js",
+#     #
+#     # #slideshow static files
+#     # "coffeeCloud/static/coffeeCloud/slideshow.js",
+#     ]
 
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
