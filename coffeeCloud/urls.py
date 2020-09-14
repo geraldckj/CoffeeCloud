@@ -9,10 +9,14 @@ urlpatterns = [
     path('about/', views.about, name="coffeeCloud-about"),
     path('log/', views.dailyLog, name="coffeeCloud-dailyLog"),
     path('addbean/', views.addBean, name="coffeeCloud-addBean"),
-    # path('contact/', views.contactForm, name="coffeeCloud-contactForm"),
     path('feedback/', views.feedback, name='coffeeCloud-feedback'),
+
     path('mybeans/', views.myBeans, name="coffeeCloud-myBeans"),
     path('logchoice/', views.logChoice, name="coffeeCloud-logChoice"),
     path('chiptest/', views.chipTest, name="coffeeCloud-chipTest"),
     path('chiptest2/', views.chipTest2, name="coffeeCloud-chipTest2"),
+    path('subscribe/', views.subscribe, name='coffeeCloud-subscribeForms'),
+    path('confirm/', views.confirm, name='confirm'),
+    path('delete/', views.delete, name='delete'),
+
 ]

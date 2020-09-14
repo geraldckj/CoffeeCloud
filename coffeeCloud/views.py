@@ -1,12 +1,19 @@
+import random
+from .forms import SubscriberForm
+from .models import Subscriber
+from django.views.decorators.csrf import csrf_exempt
+from django.conf import settings
+from django.shortcuts import render
 from .forms import FeedbackForm
 
 from django.shortcuts import render, redirect
 from django.core.mail import mail_admins
 from django.contrib import messages
 from django.http import HttpResponse
-from django.core.mail import send_mail
+from django.core.mail import send_mail, send_mass_mail
 from.models import Beans
 from.forms import DailyLogForm, NewBeansForm, ContactForm, BeanToLog
+
 
 beanChoice = []
 
@@ -169,3 +176,50 @@ def feedback(request):
     else:
         f = FeedbackForm()
     return render(request, 'coffeeCloud/feedback.html', {'form': f})
+
+
+# Helper Functions
+def random_digits():
+    return "%0.12d" % random.randint(0, 999999999999)
+
+
+@csrf_exempt
+def subscribe(request):
+    if request.method == 'POST':
+        sub = Subscriber(email=request.POST['email'], conf_num=random_digits())
+        sub.save()
+
+        send_mail(
+            subject='Newsletter Confirmation',
+            message='Thank you for signing up for my email newsletter! \
+                 Please complete the process by \
+                 <a href="{}/confirm/?email={}&conf_num={}"> clicking here to \
+                 confirm your registration</a>.'.format(request.build_absolute_uri('/confirm/'),
+                                                        sub.email,
+                                                        sub.conf_num),
+            from_email=settings.DEFAULT_FROM_EMAIL,
+            recipient_list=[sub.email],
+            fail_silently=False)
+
+        return render(request, 'index.html', {'email': sub.email, 'action': 'added', 'form': SubscriberForm()})
+    else:
+        return render(request, 'index.html', {'form': SubscriberForm()})
+
+
+def confirm(request):
+    sub = Subscriber.objects.get(email=request.GET['email'])
+    if sub.conf_num == request.GET['conf_num']:
+        sub.confirmed = True
+        sub.save()
+        return render(request, 'index.html', {'email': sub.email, 'action': 'confirmed'})
+    else:
+        return render(request, 'index.html', {'email': sub.email, 'action': 'denied'})
+
+
+def delete(request):
+    sub = Subscriber.objects.get(email=request.GET['email'])
+    if sub.conf_num == request.GET['conf_num']:
+        sub.delete()
+        return render(request, 'index.html', {'email': sub.email, 'action': 'unsubscribed'})
+    else:
+        return render(request, 'index.html', {'email': sub.email, 'action': 'denied'})
