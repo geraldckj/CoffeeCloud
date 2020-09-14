@@ -65,7 +65,7 @@ def addBean(request):
             messages.success(request, f'Thank you! Your beans will be added to our public database! '
                                       f'Log your first cup here :)')
             # url's can be returned with the name="" given in urls.py
-            return redirect('coffeeCloud-dailyLog')
+            return redirect('coffeeCloud-logChoice')
     else:
         form = NewBeansForm()
     return render(request, "coffeeCloud/addBean.html", {'form': form})
