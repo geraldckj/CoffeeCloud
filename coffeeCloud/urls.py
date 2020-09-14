@@ -14,4 +14,5 @@ urlpatterns = [
     path('logchoice/', views.logChoice, name="coffeeCloud-logChoice"),
     path('chiptest/', views.chipTest, name="coffeeCloud-chipTest"),
     path('chiptest2/', views.chipTest2, name="coffeeCloud-chipTest2"),
+    path('mylog/', views.myLog, name="coffeeCloud-myLog"),
 ]

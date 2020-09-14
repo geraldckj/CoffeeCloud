@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.http import HttpResponse
 from django.core.mail import send_mail
-from.models import Beans
+from.models import Beans, DailyLog
 from.forms import DailyLogForm, NewBeansForm, ContactForm, BeanToLog
 
 beanChoice = []
@@ -78,6 +78,15 @@ def myBeans(request):
         'products': beans
     }
     return render(request, "coffeeCloud/myBeans.html", allUserBeans)
+
+def myLog(request):
+    #get curr user
+    user = request.user
+    logs = DailyLog.objects.filter(user=user)
+    allUserLog = {
+        'alllogs': logs
+    }
+    return render(request, "coffeeCloud/myLog.html", allUserLog)
 
 def contactForm(request):
     if request.method == 'POST':

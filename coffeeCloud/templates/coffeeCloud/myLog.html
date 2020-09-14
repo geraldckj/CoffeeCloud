@@ -1,0 +1,20 @@
+{% extends "coffeeCloud/base.html" %}
+{% block content %}
+    <h3>Your logged entries</h3>
+    <!-- products is dict key of variable passed into template -->
+    {% for log in alllogs %}
+        <!-- to access data, .company is dict key for product attributes -->
+        <article class="media content-section">
+            <div class="media-body">
+            <div class="article-metadata">
+                <a class="mr-2" href="#">{{ log.title }}</a>
+                <small class="text-muted"> Roasted on: {{ log.dateLogged|date:"F d, Y" }}</small>
+            </div>
+            <h2><a class="article-title" href="#">{{ log.bean }}</a></h2>
+                <p class = "article-content">Bean: {{ log.bean }} <br> Brew method: {{ log.brewMethod }}</p>
+            <p class="article-content">Cup notes: {{log.cNotes}}</p>
+            <div class ="small"> My remarks{{ log.remarks }} </div>
+            </div>
+        </article>
+    {% endfor %}
+{% endblock content %}

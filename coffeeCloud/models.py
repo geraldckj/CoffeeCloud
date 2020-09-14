@@ -45,7 +45,6 @@ class DailyLog(models.Model):
     bean = models.CharField(max_length=100, default="User did not input beam")
     brewMethod = models.CharField(max_length=100)
     remarks = models.TextField(default="", blank=True, null=True)
-    dateLogged = models.DateTimeField(default=timezone.now)
     prevActivity = models.CharField(default=None, blank=True, null=True, max_length=100)
     taste = models.IntegerField(default=None, blank=True, null=True)
     mood = models.IntegerField(default=None, blank=True, null=True)
