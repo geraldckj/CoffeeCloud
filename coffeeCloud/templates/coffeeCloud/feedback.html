@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+<!-- {% extends "base.html" %}
 
 {% block title %}
 Feedback - {{ block.super }}
@@ -33,4 +33,30 @@ Feedback - {{ block.super }}
     </div>
 </div>
 
+{% endblock %} -->
+
+{% extends "coffeeCloud/base.html" %}
+{% load crispy_forms_tags %}
+
+{% extends "base.html" %}
+
+{% block title %}
+Feedback - {{ block.super }}
 {% endblock %}
+
+{% block content %}
+
+{% block content %}
+<div class="content">
+    <form method="POST">
+        {% csrf_token %}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">Contact Us</legend>
+            {{form|crispy}}
+        </fieldset>
+        <div class="form-group">
+            <button class="btn, btn-outline-info" type="submit">Submit</button>
+        </div>
+    </form>
+</div>
+{% endblock content %}

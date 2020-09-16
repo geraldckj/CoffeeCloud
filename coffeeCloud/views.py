@@ -1,4 +1,4 @@
-from .forms import FeedbackForm
+# from .forms import FeedbackForm
 
 from django.shortcuts import render, redirect
 from django.core.mail import mail_admins
@@ -102,25 +102,6 @@ def myLog(request):
     return render(request, "coffeeCloud/myLog.html", allUserLog)
 
 
-def contactForm(request):
-    if request.method == 'POST':
-        form = ContactForm(request.POST)
-        if form.is_valid():
-            sender_name = form.cleaned_data['name']
-            sender_email = form.cleaned_data['email']
-            message = "{0} has sent you a new message:\n\n{1}".format(
-                sender_name, form.cleaned_data['message'])
-            send_mail('New Enquiry', message, sender_email,
-                      ['geraldckj13@gmail.com'])
-
-            messages.success(
-                request, f'Thank you for getting in touch! We will respond to your ticket ASAP')
-            return redirect('coffeeCloud-home')
-    else:
-        form = ContactForm()
-    return render(request, "coffeeCloud/contactForm.html", {'form': form})
-
-
 def logChoice(request):
     # TODO: Allow choice in dropdown to autopopulate daily log field
     if request.method == 'POST':
@@ -147,36 +128,64 @@ def logChoice(request):
         return render(request, 'coffeeCloud/logChoice.html', {"form": form, 'pastBean': userBean})
 
 
-def chipTest(request):
-    return render(request, "coffeeCloud/chipTest.html")
-
-
-def chipTest2(request):
-    return render(request, "coffeeCLoud/chipTest2.html")
-
-
-# ...
-
-
 def test_redirect(request):
     c = Category.objects.get(name='python')
     return redirect(c)
 
 
-def feedback(request):
+# def feedback(request):
+#     if request.method == 'POST':
+#         f = FeedbackForm(request.POST)
+#         if f.is_valid():
+#             name = f.cleaned_data['name']
+#             sender = f.cleaned_data['email']
+#             subject = "You have a new Feedback from {}:{}".format(name, sender)
+#             message = "Subject: {}\n\nMessage: {}".format(
+#                 f.cleaned_data['subject'], f.cleaned_data['message'])
+#             mail_admins(subject, message)
+
+#             f.save()
+#             messages.add_message(request, messages.INFO, 'Feedback Submitted.')
+#             return redirect('feedback')
+#     else:
+#         f = FeedbackForm()
+#     return render(request, 'coffeeCloud/feedback.html', {'form': f})
+
+
+# def contactForm(request):
+#     if request.method == 'POST':
+#         form = ContactForm(request.POST)
+#         if form.is_valid():
+#             sender_name = form.cleaned_data['name']
+#             sender_email = form.cleaned_data['email']
+#             message = "{0} has sent you a new message:\n\n{1}".format(
+#                 sender_name, form.cleaned_data['message'])
+#             send_mail('New Enquiry', message, sender_email,
+#                       ['geraldckj13@gmail.com'])
+
+#             messages.success(
+#                 request, f'Thank you for getting in touch! We will respond to your ticket ASAP')
+#             return redirect('coffeeCloud-home')
+#     else:
+#         form = ContactForm()
+#     return render(request, "coffeeCloud/contactForm.html", {'form': form})
+
+def contactForm(request):
     if request.method == 'POST':
-        f = FeedbackForm(request.POST)
+        f = ContactForm(request.POST)
         if f.is_valid():
             name = f.cleaned_data['name']
             sender = f.cleaned_data['email']
-            subject = "You have a new Feedback from {}:{}".format(name, sender)
+            subject = "You have a new Feedback from {}:{}".format(
+                name, sender)
             message = "Subject: {}\n\nMessage: {}".format(
                 f.cleaned_data['subject'], f.cleaned_data['message'])
             mail_admins(subject, message)
 
             f.save()
-            messages.add_message(request, messages.INFO, 'Feedback Submitted.')
-            return redirect('feedback')
+            messages.add_message(
+                request, messages.INFO, 'Feedback Submitted.')
+            return redirect('coffeeCloud-home')
     else:
-        f = FeedbackForm()
-    return render(request, 'coffeeCloud/feedback.html', {'form': f})
+        form = ContactForm()
+    return render(request, 'coffeeCloud/contactForm.html', {'form': form})
