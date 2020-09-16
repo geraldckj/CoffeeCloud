@@ -36,11 +36,10 @@ roastLevel = [
     ("dark", "Dark"),
 ]
 
-<<<<<<< HEAD
+
 class CustomNotesInput(Field):
     template = "custom_chip_input.html"
-=======
->>>>>>> master
+
 
 class DailyLogForm(ModelForm):
     bean = forms.ModelChoiceField(queryset=Beans.objects.none())

@@ -90,17 +90,17 @@ def myBeans(request):
     }
     return render(request, "coffeeCloud/myBeans.html", allUserBeans)
 
-<<<<<<< HEAD
+
 def myLog(request):
-    #get curr user
+    # get curr user
     user = request.user
     logs = DailyLog.objects.filter(user=user)
     allUserLog = {
         'alllogs': logs
     }
+
     return render(request, "coffeeCloud/myLog.html", allUserLog)
-=======
->>>>>>> master
+
 
 def contactForm(request):
     if request.method == 'POST':
