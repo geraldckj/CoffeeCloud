@@ -5,7 +5,7 @@ from django.core.mail import mail_admins
 from django.contrib import messages
 from django.http import HttpResponse
 from django.core.mail import send_mail
-from.models import Beans
+from.models import Beans, DailyLog
 from.forms import DailyLogForm, NewBeansForm, ContactForm, BeanToLog
 
 beanChoice = []
@@ -75,7 +75,7 @@ def addBean(request):
             messages.success(request, f'Thank you! Your beans will be added to our public database! '
                                       f'Log your first cup here :)')
             # url's can be returned with the name="" given in urls.py
-            return redirect('coffeeCloud-dailyLog')
+            return redirect('coffeeCloud-logChoice')
     else:
         form = NewBeansForm()
     return render(request, "coffeeCloud/addBean.html", {'form': form})
@@ -90,6 +90,17 @@ def myBeans(request):
     }
     return render(request, "coffeeCloud/myBeans.html", allUserBeans)
 
+<<<<<<< HEAD
+def myLog(request):
+    #get curr user
+    user = request.user
+    logs = DailyLog.objects.filter(user=user)
+    allUserLog = {
+        'alllogs': logs
+    }
+    return render(request, "coffeeCloud/myLog.html", allUserLog)
+=======
+>>>>>>> master
 
 def contactForm(request):
     if request.method == 'POST':

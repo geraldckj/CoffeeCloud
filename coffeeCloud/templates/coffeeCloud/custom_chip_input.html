@@ -1,0 +1,31 @@
+{% extends "coffeeCloud/base.html" %}
+{% load crispy_forms_field %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'coffeeCloud/sliptree-bootstrap-tokenfield-9c06df4/dist/css/bootstrap-tokenfield.css' %}">
+    <script data-require="jquery@*" data-semver="2.2.0" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="{% static 'coffeeCloud/sliptree-bootstrap-tokenfield-9c06df4/dist/bootstrap-tokenfield.min.js' %}"></script>
+{% endblock head %}
+
+{% block content %}
+<div class="form-group">
+    <div class="form-control">
+        <p>Input coffee notes here, press enter or a comma to start a new block. </p>
+        {% crispy_field field 'class' 'form-control' %}
+        <input type="text" class="form-control" id="tokenfield" value="red,green,blue" />
+    </div>
+</div>
+
+    <script>
+        $('#tokenfield').tokenfield({
+          autocomplete: {
+            source: ['red','blue','green','yellow','violet','brown','purple','black','white'],
+            delay: 100
+          },
+          showAutocompleteOnFocus: true
+        })
+    </script>
+{% endblock content %}
+
+<!-- https://simpleisbetterthancomplex.com/tutorial/2018/11/28/advanced-form-rendering-with-django-crispy-forms.html#custom-fields-placement-with-crispy-forms -->

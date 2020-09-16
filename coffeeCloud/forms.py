@@ -6,6 +6,8 @@ from django.forms import ModelForm
 from .models import DailyLog, Beans
 from crispy_forms.helper import FormHelper
 from threading import local
+from crispy_forms.layout import Field
+from crispy_forms.layout import Layout
 
 # TODO: figure out how to dynamically pass currUserID into forms.py from either views or model
 
@@ -34,6 +36,11 @@ roastLevel = [
     ("dark", "Dark"),
 ]
 
+<<<<<<< HEAD
+class CustomNotesInput(Field):
+    template = "custom_chip_input.html"
+=======
+>>>>>>> master
 
 class DailyLogForm(ModelForm):
     bean = forms.ModelChoiceField(queryset=Beans.objects.none())
@@ -53,6 +60,9 @@ class DailyLogForm(ModelForm):
         self.fields['bean'].queryset = Beans.objects.filter(user=user)
         self.fields['bean'].initial = beanToLog
         self.fields['title'].initial = ""
+        self.helper.layout = Layout(
+            CustomNotesInput()
+        )
 
 
 # def __init__(self, *args, **kwargs):

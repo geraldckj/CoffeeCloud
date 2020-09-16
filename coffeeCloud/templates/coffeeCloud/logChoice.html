@@ -20,13 +20,9 @@
 
         <form method="POST">
             {% csrf_token %}
-            <fieldset class="form-group">
-                <legend class="border-bottom mb-4">Your past Beans</legend>
+            <legend class="border-bottom mb-4">Your past Beans</legend>
                 {{form}}
-            </fieldset>
-            <div class="form-group">
-                <button class="btn, btn-outline-info" type="submit">log my cup!</button>
-            </div>
+                <button class="btn btn-primary" type="submit">log my cup!</button>
         </form>
         </div>
     </div>
