@@ -3,31 +3,44 @@
 {% load socialaccount %}
 {% providers_media_js %}
 {% block content %}
+
+
+
 <div class="content">
     <form method="POST">
+
+
         {% csrf_token %}
         <fieldset class="form-group">
+            <br>
+            <p>
+                <a href="{% provider_login_url "google" %}" class="btn btn-block btn-outline-primary"> <i>
+                    </i>   Login via
+                    Google</a>
+            </p>
+            <hr>
             <legend class="border-bottom mb-4">Login Now</legend>
             {{ form | crispy }}
+            <div class="form-group">
+                <button class="btn, btn-outline-info" type="submit">Log In</button>
+            </div>
+            <!-- <div id="social-login" class="border-top pt-3">
+                <button class="btn, btn-outline-info" type="submit">
+                    <a href="{% provider_login_url "google" %}">Google Login</a>
+                </button>
+            </div> -->
+            <!-- <br> -->
+            <div class="border-top pt-3">
+                <small class="text-muted">
+                    Don't have an account yet? <a class="ml-2" href="{% url 'register' %}">Register here</a>
+                </small>
+            </div>
         </fieldset>
-        <div class="form-group">
-            <button class="btn, btn-outline-info" type="submit">Log In</button>
-        </div>
+
     </form>
-    <div class="border-top pt-3">
-        <small class="text-muted">
-            Don't have an account yet? <a class="ml-2" href="{% url 'register' %}">Register here</a>
-        </small>
-    </div>
+
     <br />
-    <div id="social-login">
-        <button>
-            <a href="{% provider_login_url "google" %}">Google Login</a>
-        </button>
-        <!-- <button>
-            <a href="#">Facebook Login</a>
-        </button> -->
-    </div>
+
 
 </div>
 {% endblock content %}
