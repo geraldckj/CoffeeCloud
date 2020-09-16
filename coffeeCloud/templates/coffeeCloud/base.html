@@ -77,67 +77,38 @@
                         <a class="nav-item nav-link" href="{% url 'coffeeCloud-home' %}">Home</a>
                         <li class="nav-item dropdown">
                             <a class="dropdown-toggle nav-item nav-link" href="{% url 'coffeeCloud-logChoice' %}"
-                               id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-                               aria-expanded="false">Log</a>
-                                <div class="dropdown-menu" id="dropdownField" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item nav-item nav-link" href="{% url 'coffeeCloud-logChoice' %}">Log a cup</a>
-                                    <a class="dropdown-item nav-item nav-link" href="{% url 'coffeeCloud-myLog' %}">My log</a>
-                                </div>
+                                id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false">Log</a>
+                            <div class="dropdown-menu" id="dropdownField" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item nav-item nav-link" href="{% url 'coffeeCloud-logChoice' %}">Log
+                                    a cup</a>
+                                <a class="dropdown-item nav-item nav-link" href="{% url 'coffeeCloud-myLog' %}">My
+                                    log</a>
+                            </div>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="dropdown-toggle nav-item nav-link" href="{% url 'coffeeCloud-logChoice' %}"
-<<<<<<< HEAD
-                               id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-                               aria-expanded="false">Beans</a>
-                                <div class="dropdown-menu" id="dropdownField" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item nav-item nav-link" href="{% url 'coffeeCloud-addBean' %}">Register beans</a>
-                                    <a class="dropdown-item nav-item nav-link" href="{% url 'coffeeCloud-myBeans' %}">Catalogue</a>
-                                </div>
-=======
                                 id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
                                 aria-expanded="false">Beans</a>
                             <div class="dropdown-menu" id="dropdownField" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item nav-item nav-link"
                                     href="{% url 'coffeeCloud-addBean' %}">Register beans</a>
-                                <a class="dropdown-item nav-item nav-link" href="#">Catalogue</a>
+                                <a class="dropdown-item nav-item nav-link"
+                                    href="{% url 'coffeeCloud-myBeans' %}">Catalogue</a>
                             </div>
->>>>>>> master
                         </li>
                         <a class="nav-item nav-link" href="{% url 'coffeeCloud-about'%}">About</a>
                         <a class="nav-item nav-link" href="{% url 'coffeeCloud-feedback'%}">Contact</a>
                     </div>
                     <!-- Navbar Right Side -->
                     <div class="navbar-nav">
-<<<<<<< HEAD
-                    <a class="nav-item nav-link" href="{% url 'coffeeCloud-contactForm' %}">Contact</a>
-                    <a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
-=======
                         <a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
->>>>>>> master
                     </div>
                 </div>
             </div>
         </nav>
     </header>
 
-<<<<<<< HEAD
-        {% else %}
-            <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
-            <div class="container">
-                <a class="navbar-brand mr-4" href="/">Coffee Cloud</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle"
-                        aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarToggle">
-                    <div class="navbar-nav mr-auto">
-                        <a class="nav-item nav-link" href="{% url 'coffeeCloud-home' %}">Home</a>
-                        <a class="nav-item nav-link" href="{% url 'coffeeCloud-about'%}">About</a>
-                    </div>
-                    <!-- Navbar Right Side -->
-                    <div class="navbar-nav">
-                    <a class="nav-item nav-link" href="{% url 'coffeeCloud-contactForm' %}">Contact</a>
-=======
     {% else %}
     <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
         <div class="container">
@@ -150,10 +121,10 @@
                 <div class="navbar-nav mr-auto">
                     <a class="nav-item nav-link" href="{% url 'coffeeCloud-home' %}">Home</a>
                     <a class="nav-item nav-link" href="{% url 'coffeeCloud-about'%}">About</a>
+                    <a class="nav-item nav-link" href="{% url 'coffeeCloud-feedback'%}">Contact</a>
                 </div>
                 <!-- Navbar Right Side -->
                 <div class="navbar-nav">
->>>>>>> master
                     <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
                     <a class="nav-item nav-link" href="{% url 'register' %}">Register</a>
                 </div>
@@ -179,24 +150,6 @@
         {% block content %}
         {% endblock %}
     </div>
-
-
-    <!--
-                    <div class="col-md-4">
-                        <div class="content-section">
-                            <h3>Our Sidebar</h3>
-                            <p class='text-muted'>You can put any information here you'd like.
-                                <ul class="list-group">
-                                    <li class="list-group-item list-group-item-light">Latest Posts</li>
-                                    <li class="list-group-item list-group-item-light">Announcements</li>
-                                    <li class="list-group-item list-group-item-light">Calendars</li>
-                                    <li class="list-group-item list-group-item-light">etc</li>
-                                </ul>
-                            </p>
-                    </div>
-                </div>
-            </div>
-            -->
 
 </body>
 
