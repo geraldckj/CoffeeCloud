@@ -119,10 +119,10 @@ class NewBeansForm(ModelForm):
         self.fields['roast'].initial = placeholder
 
 
-class ContactForm(forms.Form):
-    name = forms.CharField(max_length=100)
-    email = forms.EmailField()
-    message = forms.CharField(widget=forms.Textarea)
+# class ContactForm(forms.Form):
+#     name = forms.CharField(max_length=100)
+#     email = forms.EmailField()
+#     message = forms.CharField(widget=forms.Textarea)
 
 
 class BeanToLog(forms.Form):
@@ -134,7 +134,7 @@ class BeanToLog(forms.Form):
         self.fields['BeanToLog'].queryset = Beans.objects.filter(user=user)
 
 
-class FeedbackForm(forms.ModelForm):
+class ContactForm(forms.ModelForm):
 
     class Meta:
         model = Feedback

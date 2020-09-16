@@ -182,7 +182,7 @@ DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 ADMINS = [
     ('lee', 'leeszeray@outlook.com'),
-    ('gerald', 'geraldckj@gmail.com'),
+    # ('gerald', 'geraldckj@gmail.com'),
 ]
 
 MANAGERS = ADMINS

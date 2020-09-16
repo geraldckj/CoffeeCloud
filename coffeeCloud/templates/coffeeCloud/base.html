@@ -58,6 +58,20 @@
     {% else %}
     <title>Coffee Cloud</title>
     {%endif%}
+    <br>
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <!-- <li{% if message.tags %} class="{{ message.tags }}" {% endif %}> -->
+        <li>
+            <div class="alert alert-{{msg.level_tag}}" role="alert">
+                {{ message }}
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
 
 </head>
 
@@ -98,7 +112,7 @@
                             </div>
                         </li>
                         <a class="nav-item nav-link" href="{% url 'coffeeCloud-about'%}">About</a>
-                        <a class="nav-item nav-link" href="{% url 'coffeeCloud-feedback'%}">Contact</a>
+                        <a class="nav-item nav-link" href="{% url 'coffeeCloud-contactForm'%}">Contact</a>
                     </div>
                     <!-- Navbar Right Side -->
                     <div class="navbar-nav">
@@ -121,7 +135,7 @@
                 <div class="navbar-nav mr-auto">
                     <a class="nav-item nav-link" href="{% url 'coffeeCloud-home' %}">Home</a>
                     <a class="nav-item nav-link" href="{% url 'coffeeCloud-about'%}">About</a>
-                    <a class="nav-item nav-link" href="{% url 'coffeeCloud-feedback'%}">Contact</a>
+                    <a class="nav-item nav-link" href="{% url 'coffeeCloud-contactForm'%}">Contact</a>
                 </div>
                 <!-- Navbar Right Side -->
                 <div class="navbar-nav">
