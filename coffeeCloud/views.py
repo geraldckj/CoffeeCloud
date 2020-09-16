@@ -128,9 +128,3 @@ def logChoice(request):
         print(pastBean)
         form = BeanToLog(user=user)
         return render(request, 'coffeeCloud/logChoice.html', {"form": form, 'pastBean': userBean})
-
-def chipTest(request):
-    return render(request, "coffeeCloud/chipTest.html")
-
-def chipTest2(request):
-    return render(request, "coffeeCLoud/chipTest2.html")
