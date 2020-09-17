@@ -34,8 +34,8 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'chartjs',
     'rest_framework',
-    'coffeeQuiz',
     
+    'coffeeQuiz.apps.CoffeequizConfig',
     'users.apps.UsersConfig',
     'crispy_forms',
     'coffeeCloud.apps.coffeeCloudConfig',

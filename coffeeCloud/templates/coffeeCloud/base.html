@@ -39,13 +39,6 @@
     <script src="{% static 'coffeeCloud/slideshow.js' %}"></script>
 
 
-
-    <script>
-        $(function() {
-            $("#tokenfield").autofill({
-                data: ["javascript", "mysql", "python", "jquery"]
-            });
-        })
     </script>
     {% if title %}
         <title>Coffee Cloud: {{ title }}</title>
@@ -122,8 +115,8 @@
             </nav>
         {% endif %}
         <main role="main" class="container-fluid">
-            <div class="row">
-                <div>
+            <div class="" id="message-popup">
+                <!-- TODO: Sort out issue with message not displaying. Margins are inadequate -->
                     {% if messages %}
                     {% for message in messages %}
                     <!-- message.tags is taken from views.py. it is the tag that comes after message -->
@@ -132,14 +125,12 @@
                         </div>
                     {% endfor %}
                     {% endif %}
-                </div>
             </div>
-        </main>
             <div class="container-fluid" id="blockContent">
                 {% block content %}
                 {% endblock %}
             </div>
-
+        </main>
 
                 <!--
                     <div class="col-md-4">

@@ -22,10 +22,10 @@ expLevel = [
 ]
 
 prefTaste = [
+    #option on left is what shows up in db. Option on right is what user sees.
     ("africa", "Berries, Stonefruit. Fruity and complex flavours"),
     ("indonesia/india", "Earthy, herbal, Chocolately"),
-    ("brazil/columbia", "Exercising"),
-    ("eating", "Eating")
+    ("brazil/columbia", "Bright, Nutty and Chocolately"),
 ]
 
 class coffeeQuiz(ModelForm):
