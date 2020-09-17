@@ -7,8 +7,8 @@
     <h1 class="w3-xxlarge w3-text-white"><span class="w3-padding w3-black w3-opacity-min">
             <b>COFFEE</b></span> <span class="w3-hide-small w3-text-light-grey">Cloud</span></h1>
     <br><span class='text-muted w3-text-light-grey'>Redefining Coffee</span><br>
-    <div style="align-content: center; margin-top: 15px"><a class="btn btn-info" style="margin-right:20px"
-            href="#about-us">Learn More</a>
+    <div style="align-content: center; margin-top: 15px">
+        <a class="btn btn-info" style="margin-right:20px" href="#about-us">Learn More</a>
         <btn class="btn btn-info" style="margin-left:20px">Log a bean</btn>
     </div>
 </div>
@@ -56,12 +56,36 @@
 
 <!--About us -->
 <div class="container-fluid" id="about-us">
-    <h1 class="w3-xxlarge w3-text-white"><span class="w3-padding w3-black w3-opacity-min">
-            <a name="aboutUsAnchor">About us</a></span></h1>
-    <br><span class='text-muted w3-text-light-grey'>Coffee Cloud is a website for all your coffee needs.
-        <br>Log your brews and compare your favourite coffees.
-        <p></p>
-        <br>No matter if you're a beginner or expert, there's something for you.</span>
+    <div class="w3-xxlarge w3-text-white">
+        <h1>
+            <a class="w3-padding w3-black w3-opacity-min" name="aboutUsAnchor">About us</a>
+        </h1>
+        <!-- <h3>
+            By Coffee Lovers for Coffee Lovers
+        </h3> -->
+    </div>
+    <br>
+    <div class='text-muted w3-text-light-grey'>
+        <p>
+            Coffee Cloud is a non-profit website to support coffee lovers.
+            <li>Log your daily brews</li>
+            <li>Compare coffees in the market</li>
+            <li>Get coffee recommendations</li>
+            <li>Find out what are the most popular coffees being drunk around the world!</li>
+        </p>
+        <p>
+            No matter if you're a beginner or expert, there's something for you.
+            <br>
+            We are a site in our infancy. If you would like to help support our development or website's finance, please
+            click the respective links below:
+        </p>
+        <div style="align-content: center; margin-top: 15px">
+            <a class="btn btn-info" style="margin-right:20px" href="{% url 'coffeeCloud-contactForm'%}">Join Dev</a>
+            <a class="btn btn-info" style="margin-left:20px" href="https://www.buymeacoffee.com/leeszeray">Donate</a>
+        </div>
+
+    </div>
+
 </div>
 <script>
     var num = 0;
