@@ -12,9 +12,10 @@ class Beans(models.Model):
     roast = models.CharField(max_length=100)
     process = models.CharField(
         max_length=200, default=None, blank=True, null=True)
-    dateRoast = models.DateTimeField(default=None, blank=True, null=True)
-    notes = models.TextField(default=None, blank=True, null=True)
-    description = models.TextField(default=None, blank=True, null=True)
+    intendedBrewMethod = models.CharField(default="Filter", max_length=100)
+    dateRoast = models.DateTimeField(max_length=200, default=None, blank=True, null=True)
+    notes = models.CharField(max_length=300, default=None, blank=True, null=True)
+    description = models.CharField(max_length=200, default=None, blank=True, null=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def save(self, *args, **kwargs):
@@ -50,7 +51,7 @@ class DailyLog(models.Model):
         max_length=100, default="User did not input title")
     bean = models.CharField(max_length=100, default="User did not input beam")
     brewMethod = models.CharField(max_length=100)
-    remarks = models.TextField(default="", blank=True, null=True)
+    remarks = models.CharField(max_length=300, default="", blank=True, null=True)
     prevActivity = models.CharField(
         default=None, blank=True, null=True, max_length=100)
     dateLogged = models.DateTimeField(default=timezone.now)
