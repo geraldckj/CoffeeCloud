@@ -125,6 +125,7 @@ def logChoice(request):
         }
         print(pastBean)
         form = BeanToLog(user=user)
+<<<<<<< HEAD
         return render(request, 'coffeeCloud/logChoice.html', {"form": form, 'pastBean': userBean})
 
 
@@ -189,3 +190,6 @@ def contactForm(request):
     else:
         form = ContactForm()
     return render(request, 'coffeeCloud/contactForm.html', {'form': form})
+=======
+        return render(request, 'coffeeCloud/logChoice.html', {"form": form, 'pastBean': userBean})
+>>>>>>> coffeeQuiz
