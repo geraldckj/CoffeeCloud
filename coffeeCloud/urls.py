@@ -3,12 +3,7 @@ from . import views
 urlpatterns = [
     # views.home is function in views
     # name is name of directory and corresponding function
-<<<<<<< HEAD
-    # name can be used to set url links
-    path('home/', views.pub_homepage, name="coffeeCloud-pub_homepage"),
-=======
     #name can be used to set url links
->>>>>>> coffeeQuiz
     path('', views.home, name="coffeeCloud-home"),
     path('about/', views.about, name="coffeeCloud-about"),
     path('log/', views.dailyLog, name="coffeeCloud-dailyLog"),

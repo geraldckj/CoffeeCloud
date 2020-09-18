@@ -146,29 +146,6 @@
                     <a class="nav-item nav-link" href="{% url 'register' %}">Register</a>
                 </div>
             </div>
-<<<<<<< HEAD
-        </div>
-    </nav>
-    {% endif %}
-    <main role="main" class="container-fluid">
-        <div class="row">
-            <div>
-                {% if messages %}
-                {% for message in messages %}
-                <!-- message.tags is taken from views.py. it is the tag that comes after message -->
-                <div class="alert alert-{{ message.tags }}">
-                    {{ message }}
-                </div>
-                {% endfor %}
-                {% endif %}
-            </div>
-        </div>
-    </main>
-    <div class="container-fluid" id="blockContent">
-        {% block content %}
-        {% endblock %}
-    </div>
-=======
             </nav>
         {% endif %}
         <main role="main" class="container-fluid">
@@ -205,7 +182,6 @@
                 </div>
             </div>
             -->
->>>>>>> coffeeQuiz
 
 </body>
 
