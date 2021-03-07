@@ -173,18 +173,18 @@ SITE_ID = 1
 
 # Email settings
 
-SERVER_EMAIL = 'leeszeray@outlook.com'
+SERVER_EMAIL = '-@outlook.com'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.outlook.com'
-EMAIL_HOST_PASSWORD = 'Stingray2019Y'
+EMAIL_HOST_PASSWORD = '-'
 EMAIL_HOST_USER = SERVER_EMAIL
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 ADMINS = [
-    ('lee', 'leeszeray@outlook.com'),
-    # ('gerald', 'geraldckj@gmail.com'),
+    ('-', '-@outlook.com'),
+    # ('-', '-@gmail.com'),
 ]
 
 MANAGERS = ADMINS
