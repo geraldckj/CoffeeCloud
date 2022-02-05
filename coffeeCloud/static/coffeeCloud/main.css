@@ -2,6 +2,7 @@ body {
   background: #fafafa;
   color: #333333;
   margin-top: 5rem;
+  padding-top: 4px;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -16,6 +17,8 @@ ul {
   background-color: #5f788a;
 }
 
+
+
 .site-header .navbar-nav .nav-link {
   color: #cbd5db;
 }
@@ -28,6 +31,8 @@ ul {
 .site-header .navbar-nav .nav-link.active {
   font-weight: 500;
 }
+
+
 
 .content-section {
   background: #ffffff;
@@ -84,6 +89,10 @@ a.article-title:hover {
   font-size: 2.5rem;
 }
 
+.alert{
+  padding: 0,0;
+}
+
 /* mine */
 .btn-grp{
   margin-right: 50px;
@@ -114,7 +123,7 @@ a.article-title:hover {
   color: #cbd5db;
 }
 
-#dropdownField{
+#dropdownField {
   background-color: #546978;
   color: #cbd5db;
   padding-left: 8px;
@@ -137,8 +146,10 @@ a.article-title:hover {
   padding: 2px 16px;
 }
 .container-fluid {
-  padding: 0px 0px 0px 0px;
+  padding: 13px 0px 0px 0px;
 }
+
+
 
 #about-us{
   background-image: url("https://inspirationfeed.com/wp-content/uploads/2016/08/mobile_wallpaper_by_maria_shanina-min.png");
@@ -159,7 +170,7 @@ a.article-title:hover {
     width: 100%;
     height: 450px;
     text-align: center;
-    padding-top: 150px;
+    padding-top: 100px;
     margin-left: 0px;
     margin-right: 0px;
     margin-bottom: 0px;
@@ -170,5 +181,5 @@ a.article-title:hover {
 
 #message-popup{
   text-align: center;
-  margin-top: 20px;
+  margin-top: 0px;
 }
